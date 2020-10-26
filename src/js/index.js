@@ -3,5 +3,5 @@ import CountdownTimer from './countdown-timer.js';
 
 const timer = new CountdownTimer({
   selector: 'timer-1',
-  targetDate: new Date('Oct 27, 2020'),
+  targetDate: new Date('Oct 31, 2020'),
 });
