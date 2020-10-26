@@ -9,7 +9,6 @@ export default class CountdownTimer {
     this.targetDate = targetDate;
 
     this.start();
-    this.init();
   }
 
   start() {
@@ -18,38 +17,6 @@ export default class CountdownTimer {
       const deltaTime = this.targetDate - currentTime;
       const time = this.getTimeComponents(deltaTime);
 
-      if (time < 0) {
-        clearInterval(this.intervalId);
-        refs.clockface.innerHTML = `<div class="timer" id="${this.selector}">
-        <div class="field">
-          <span class="value" data-value="days">
-            00
-          </span>
-          <span class="label">Days</span>
-        </div>
-
-        <div class="field">
-          <span class="value" data-value="hours">
-            00
-          </span>
-          <span class="label">Hours</span>
-        </div>
-
-        <div class="field">
-          <span class="value" data-value="mins">
-            00
-          </span>
-          <span class="label">Minutes</span>
-        </div>
-
-        <div class="field">
-          <span class="value" data-value="secs">
-            00
-          </span>
-          <span class="label">Seconds</span>
-        </div>
-      </div>`;
-      }
       this.updateClockface(time);
     }, 1000);
   }
