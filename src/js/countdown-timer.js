@@ -8,19 +8,24 @@ export default class CountdownTimer {
     this.selector = selector;
     this.targetDate = targetDate;
 
+    this.timer();
     this.start();
   }
 
   start() {
     this.intervalId = setInterval(() => {
-      const currentTime = Date.now();
-      const deltaTime = this.targetDate - currentTime;
-      const time = this.getTimeComponents(deltaTime);
-
-      this.updateClockface(time);
+      this.timer();
     }, 1000);
   }
 
+  // додає розмітку таймера з 00 секунд
+  timer() {
+    const currentTime = Date.now();
+    const deltaTime = this.targetDate - currentTime;
+    const time = this.getTimeComponents(deltaTime);
+
+    this.updateClockface(time);
+  }
   /*
    * - Принимает время в миллисекундах
    * - Высчитывает сколько в них вмещается часов/минут/секунд
